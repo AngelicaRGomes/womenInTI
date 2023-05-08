@@ -44,7 +44,30 @@ const women = (req, res) => {
     res.json(womenInTI)
 };
 
+const updateWoman = (req, res) => {
+    const findWoman = (woman) =>{
+        if (woman.id === req.params.id) return woman
+    }
 
+    const findedWoman = womenInTI.find(findWoman)
+
+    if (req.body.name) findedWoman.name = req.body.name;
+    if (req.body.image) findedWoman.image = req.body.image;
+    if (req.body.resume) findedWoman.resume = req.body.resume;
+
+
+    res.json(womenInTI)
+}
+
+const deleteWoman = (req, res) => {
+    const filterWoman = (woman) => {
+        if (woman.id !== req.params.id) return woman
+    }
+
+    const filteredWoman = womenInTI.filter(filterWoman)
+
+    res.json(filteredWoman)
+}
 
 const showHour = (req, res) => {
     const date = new Date();
@@ -58,5 +81,7 @@ module.exports = {
     showHello,
     women,
     showHour,
-    createWoman
+    createWoman,
+    updateWoman,
+    deleteWoman
 }
