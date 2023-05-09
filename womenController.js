@@ -15,8 +15,8 @@ async function createWoman (req, res) {
     })
 
     try{
-        const womanCriated = await createNewWoman.save();
-        res.status(201).json(womanCriated)
+        const womanCreated = await createNewWoman.save();
+        res.status(201).json(womanCreated)
     }catch(err){
         console.log("Erro", err)
     }
@@ -39,7 +39,7 @@ async function updateWoman (req, res) {
         if (req.body.nome) findedWoman.nome = req.body.nome;
         if (req.body.imagem) findedWoman.imagem = req.body.imagem;
         if (req.body.minibio) findedWoman.minibio = req.body.minibio;
-        if (req.body.citacao) findedWoman.citacao = req.body.quote;
+        if (req.body.citacao) findedWoman.citacao = req.body.citacao;
 
         const lastWoman = await findedWoman.save();
         res.status(201).json(lastWoman)
