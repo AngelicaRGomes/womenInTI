@@ -1,19 +1,19 @@
 const db = require('mongoose');
 
 const WomanSchema = new db.Schema({
-    name: {
+    nome: {
         type: String,
         required: true
     },
-    image: {
+    imagem: {
         type: String,
         required: true
     },
-    quote: {
+    citacao: {
         type: String,
         required: true
     },
-    resume: {
+    minibio: {
         type: String,
         required: true
     }
