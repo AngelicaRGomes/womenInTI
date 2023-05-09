@@ -11,7 +11,7 @@ async function createWoman (req, res) {
         nome: req.body.nome,
         imagem: req.body.imagem,
         citacao: req.body.citacao,
-        minibio: req.body.minbio
+        minibio: req.body.minibio
     })
 
     try{
