@@ -8,10 +8,10 @@ const showHello = (req, res) => (res.send("Olá, mundo!"));
 
 async function createWoman (req, res) {
     const createNewWoman = new WomenTI({
-        name: req.body.name,
-        image: req.body.image,
-        quote: req.body.quote,
-        resume: req.body.resume
+        nome: req.body.nome,
+        imagem: req.body.imagem,
+        citacao: req.body.citacao,
+        minibio: req.body.minbio
     })
 
     try{
@@ -36,10 +36,10 @@ async function updateWoman (req, res) {
     try{
         const _id = req.params.id;
         const findedWoman = await WomenTI.findById(_id);
-        if (req.body.name) findedWoman.name = req.body.name;
-        if (req.body.image) findedWoman.image = req.body.image;
-        if (req.body.resume) findedWoman.resume = req.body.resume;
-        if (req.body.quote) findedWoman.quote = req.body.quote;
+        if (req.body.nome) findedWoman.nome = req.body.nome;
+        if (req.body.imagem) findedWoman.imagem = req.body.imagem;
+        if (req.body.minibio) findedWoman.minibio = req.body.minibio;
+        if (req.body.citacao) findedWoman.citacao = req.body.quote;
 
         const lastWoman = await findedWoman.save();
         res.status(201).json(lastWoman)
